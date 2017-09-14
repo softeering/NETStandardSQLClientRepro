@@ -17,6 +17,15 @@ namespace ConsoleApp1
 			var pluginAssembly = loader.LoadFromAssemblyPath(new FileInfo(@"..\output\ClassLibrary1.Implementation.dll").FullName);
 			ITableReader implementation = Activator.CreateInstance(pluginAssembly.GetType("ClassLibrary1.Implementation.SQLServerReader", true)) as ITableReader;
 			var tableList = await implementation.GetTablesAsync();
+
+			foreach (var item in tableList)
+			{
+				Console.WriteLine(item);
+			}
+
+			Console.WriteLine();
+			Console.WriteLine("Completed... [Press enter to terminate]");
+			Console.ReadLine();
 		}
 	}
 

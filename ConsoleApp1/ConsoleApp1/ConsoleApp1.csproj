@@ -17,8 +17,4 @@
     <ProjectReference Include="..\ConsoleApp1.Contracts\ConsoleApp1.Contracts.csproj" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell.exe $(ProjectDir)..\build.ps1" />
-  </Target>
-
 </Project>

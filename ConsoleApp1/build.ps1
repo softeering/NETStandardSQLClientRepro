@@ -1,4 +1,4 @@
-
+param([string]$rid = $null)
 cd $PSScriptRoot
 
 if (Test-Path output)
@@ -9,7 +9,13 @@ if (Test-Path output)
 
 mkdir output
 
-# WORKS
-# dotnet publish -c release -r "win10-x64" -o ..\output ClassLibrary1.Implementation\ClassLibrary1.Implementation.csproj
-# DOESN'T WORK
-dotnet publish -c release -o ..\output ClassLibrary1.Implementation\ClassLibrary1.Implementation.csproj
+if ($rid -eq $null -or $rid -eq "")
+{
+	# executing ConsoleApp1 won't work ()
+	dotnet publish -c release -o ..\output ClassLibrary1.Implementation\ClassLibrary1.Implementation.csproj
+}
+else
+{
+	# executing ConsoleApp1 will work
+	dotnet publish -c release -r $rid -o ..\output ClassLibrary1.Implementation\ClassLibrary1.Implementation.csproj
+}
