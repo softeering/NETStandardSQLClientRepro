@@ -21,3 +21,4 @@ dotnet publish -c release -o ..\output ClassLibrary1.Implementation\ClassLibrary
 - clone this repo
 - run the .\build.ps1 script which will generate a folder called "output" containing the binaries
 - open the solution in VS 2017 and press F5
+  - running the ConsoleApp1 will work or not depending on the build you ran as described above
